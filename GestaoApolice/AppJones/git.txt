@@ -1,0 +1,5 @@
+git status
+git add . //prepara todo mundo para o commit
+git status
+git commit -m "Criação da camada de serviço com persistencia em Map"
+git push
