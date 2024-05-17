@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
-@Component
+//@Component
 public class SeguradoraLoader implements ApplicationRunner{
 
 	@Autowired
@@ -49,7 +49,7 @@ public class SeguradoraLoader implements ApplicationRunner{
 		System.out.println("Iniciando o processamento: ");
 		
 		for(Seguradora seguradora : seguradoraService.exibir()) {
-			System.out.println("entrou");
+			
 			System.out.println("Banco Service: "+seguradora);
 		}
 		

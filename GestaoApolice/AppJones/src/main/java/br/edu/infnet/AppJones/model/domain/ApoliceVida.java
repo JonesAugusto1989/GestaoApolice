@@ -4,13 +4,22 @@ import java.util.List;
 
 public class ApoliceVida extends Apolice{
 	
+	private boolean Internacional;
 	private List<String> cobertura;
-	private boolean nacionalInternacional;
+	
+	
+	
 	
 	
 	@Override
 	public String toString() {
-		return super.toString()+" ApoliceVida [cobertura=" + cobertura + ", nacionalInternacional=" + nacionalInternacional + "]";
+		return super.toString()+"ApoliceVida [Internacional=" + Internacional + ", cobertura=" + cobertura + "]";
+	}
+	public boolean isInternacional() {
+		return Internacional;
+	}
+	public void setInternacional(boolean internacional) {
+		Internacional = internacional;
 	}
 	public List<String> getCobertura() {
 		return cobertura;
@@ -18,11 +27,6 @@ public class ApoliceVida extends Apolice{
 	public void setCobertura(List<String> cobertura) {
 		this.cobertura = cobertura;
 	}
-	public boolean isNacionalInternacional() {
-		return nacionalInternacional;
-	}
-	public void setNacionalInternacional(boolean nacionalInternacional) {
-		this.nacionalInternacional = nacionalInternacional;
-	}
+
 
 }

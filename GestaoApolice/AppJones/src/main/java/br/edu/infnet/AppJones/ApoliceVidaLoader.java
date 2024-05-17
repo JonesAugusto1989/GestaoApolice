@@ -5,20 +5,25 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
+import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 
 @Component
 public class ApoliceVidaLoader implements ApplicationRunner{
 
+	@Autowired
+	private ApoliceVidaService apoliceVidaService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		Map<Integer, ApoliceVida> BancoVida = new HashMap<Integer, ApoliceVida>();
+		
 		Integer id=0;
 		
 		
@@ -33,20 +38,26 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 			campos = linha.split(";");
 			
 		
-			ApoliceVida apolice = new ApoliceVida();
-			apolice.setApoliceContratante((campos[0]));
-			apolice.setSeguradoraContratada((campos[1]));
-			apolice.setId(++id);
+			ApoliceVida apoliceVida = new ApoliceVida();
+			apoliceVida.setApoliceContratante((campos[0]));
+			apoliceVida.setSeguradoraContratada((campos[1]));
+			apoliceVida.setId(++id);
 			valor.parseFloat(campos[2]);
-			apolice.setValor(Float.valueOf(campos[2]));
+			apoliceVida.setValor(Float.valueOf(campos[2]));
 			
-			BancoVida.put(id, apolice);
-			System.out.println(apolice);
+			
+			apoliceVidaService.incluir(apoliceVida);
+		
 			linha = leitura.readLine();
 		}
-		for(ApoliceVida apolice: BancoVida.values()) {
+		
+	
+		
+		for(ApoliceVida apolice: apoliceVidaService.exibir()) {
+			
 			System.out.println("Banco Vida: "+ apolice);
 		}
+		
 		
 		
 		leitura.close();
