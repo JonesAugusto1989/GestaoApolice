@@ -18,11 +18,21 @@ public class ApoliceAutoService {
 	
 	public void incluir(ApoliceAuto apoliceAuto) {
 		apoliceAuto.setId(++id);
-		bancoAuto.put(id,apoliceAuto);
+		bancoAuto.put(apoliceAuto.getId(),apoliceAuto);
 	}
 	
 	public Collection<ApoliceAuto> exibir() {
 		return bancoAuto.values();
+	}
+	
+	public ApoliceAuto obterPorId(Integer id) {
+		return bancoAuto.get(id);
+		
+	}
+
+	public void exluir(Integer id) {
+		bancoAuto.remove(id);
+		
 	}
 	
 

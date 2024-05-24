@@ -14,7 +14,7 @@ import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 
-@Component
+//@Component
 public class ApoliceVidaLoader implements ApplicationRunner{
 
 	@Autowired

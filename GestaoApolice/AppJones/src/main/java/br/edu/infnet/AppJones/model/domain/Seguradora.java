@@ -1,5 +1,6 @@
 package br.edu.infnet.AppJones.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Seguradora {
@@ -9,6 +10,10 @@ public class Seguradora {
 	private String nome;
 	private String email;
 	private List<Apolice> apolices;
+	
+	public Seguradora() {
+		this.apolices = new ArrayList<Apolice>();
+	}
 	
 	public Integer getId() {
 		return id;
@@ -42,8 +47,10 @@ public class Seguradora {
 	}
 	@Override
 	public String toString() {
-		return  "Segurador " + " nome=" + nome ;
+		return "Seguradora [id=" + id + ", cpf_cnpj=" + cpf_cnpj + ", nome=" + nome + ", email=" + email + ", apolices="
+				+ apolices.size() + "]";
 	}
+	
 	
 	
 	

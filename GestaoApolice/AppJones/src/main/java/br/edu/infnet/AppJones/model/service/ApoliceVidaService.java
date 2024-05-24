@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 
@@ -17,11 +18,21 @@ public class ApoliceVidaService {
 	
 	public void incluir(ApoliceVida apoliceVida) {
 		apoliceVida.setId(++id);
-		bancoVida.put(id,apoliceVida);
+		bancoVida.put(apoliceVida.getId(),apoliceVida);
 	}
 	
 	public Collection<ApoliceVida> exibir() {
 		return bancoVida.values();
+	}
+	
+	public ApoliceVida obterPorId(Integer id) {
+		return bancoVida.get(id);
+		
+	}
+
+	public void exluir(Integer id) {
+		bancoVida.remove(id);
+		
 	}
 	
 

@@ -17,7 +17,7 @@ import br.edu.infnet.AppJones.model.domain.Apolice;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 
-@Component
+//@Component
 public class ApoliceLoader implements ApplicationRunner{
 
 	@Override
