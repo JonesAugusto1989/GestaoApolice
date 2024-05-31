@@ -29,7 +29,7 @@ public class SeguradoraLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		FileReader file = new FileReader("Seguradora.txt");
+		FileReader file = new FileReader("files/Seguradora.txt");
 		BufferedReader leitura = new BufferedReader(file);
 		
 		String linha = leitura.readLine();
@@ -61,12 +61,12 @@ public class SeguradoraLoader implements ApplicationRunner{
 						
 					 apoliceAuto.setSeguradoraContratada(campos[3]);
 					 
-					 LocalDate dataInicial = LocalDate.parse(campos[4],formatador);
-					 apoliceAuto.setVigenciaInicial(dataInicial);
-					 LocalDate dataFinal = LocalDate.parse(campos[5],formatador);
-					 apoliceAuto.setVigenciaFinal(dataFinal);
+					
+					 apoliceAuto.setVigenciaInicial(campos[4]);
+				
+					 apoliceAuto.setVigenciaFinal(campos[5]);
 					 apoliceAuto.setValor(Float.valueOf(campos[6]));
-					 apoliceAuto.setNumero(campos[7]);
+					 apoliceAuto.setNumeroDaApolice(campos[7]);
 					 apoliceAuto.setPlaca(campos[8]);
 					 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
 					 segurador.getApolices().add(apoliceAuto);		
@@ -82,10 +82,10 @@ public class SeguradoraLoader implements ApplicationRunner{
 						
 					 apoliceVida.setSeguradoraContratada(campos[3]);
 					 
-					 LocalDate dataInicialVida = LocalDate.parse(campos[4],formatadorVida); 
-					 apoliceVida.setVigenciaInicial(dataInicialVida);
-					 LocalDate dataFinalVida = LocalDate.parse(campos[5],formatadorVida);
-					 apoliceVida.setVigenciaFinal(dataFinalVida);
+					
+					 apoliceVida.setVigenciaInicial(campos[4]);
+					 
+					 apoliceVida.setVigenciaFinal(campos[5]);
 					 apoliceVida.setValor(Float.valueOf(campos[6]));
 					 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));
 					 

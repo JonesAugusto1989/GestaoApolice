@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 
-
 @Service
 public class ApoliceAutoService {
 	

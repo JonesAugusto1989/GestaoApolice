@@ -1,10 +1,11 @@
 package br.edu.infnet.AppJones.model.domain;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Apolice {
 	
-	private Integer id;
+	private Integer id = 0;
 	private String tipoSeguro;
 	private String beneficiario;
 	private String apoliceContratante;
@@ -12,6 +13,10 @@ public abstract class Apolice {
 	private LocalDate vigenciaInicial;
 	private LocalDate vigenciaFinal;
 	private float valor;
+	
+	public Apolice() {
+		id++;
+	}
 	
 	
 	public Integer getId() {
@@ -69,8 +74,11 @@ public abstract class Apolice {
 	}
 
 
-	public void setVigenciaInicial(LocalDate vigenciaInicial) {
-		this.vigenciaInicial = vigenciaInicial;
+	public void setVigenciaInicial(String vigenciaInicial) {
+		
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate localVigenciaInicial = LocalDate.parse(vigenciaInicial,formatador);
+		this.vigenciaInicial = localVigenciaInicial;
 	}
 
 
@@ -79,8 +87,10 @@ public abstract class Apolice {
 	}
 
 
-	public void setVigenciaFinal(LocalDate vigenciaFinal) {
-		this.vigenciaFinal = vigenciaFinal;
+	public void setVigenciaFinal(String vigenciaFinal) {
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate localVigenciaFinal = LocalDate.parse(vigenciaFinal,formatador);
+		this.vigenciaFinal = localVigenciaFinal;
 	}
 
 
@@ -96,7 +106,7 @@ public abstract class Apolice {
 
 	@Override
 	public String toString() {
-		return "Apolice [Benificiario= "+ beneficiario +", apoliceContratante=" + apoliceContratante + ", SeguradoraContratada=" + SeguradoraContratada
+		return "Apolice: id = "+id +"[Benificiario= "+ beneficiario +", apoliceContratante=" + apoliceContratante + ", SeguradoraContratada=" + SeguradoraContratada
 				+ ", valor=" + valor + "]";
 	}
 	

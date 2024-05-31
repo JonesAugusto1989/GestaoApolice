@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -16,17 +17,24 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.AppJones.model.domain.Apolice;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
+import br.edu.infnet.AppJones.model.service.ApoliceService;
 
-//@Component
+@Component
 public class ApoliceLoader implements ApplicationRunner{
+
+	@Autowired
+	ApoliceService apoliceService;
+	
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		Map<Integer, Apolice> bancoApolices = new HashMap<Integer, Apolice>();
-		Integer id=0;
+		//Map<Integer, Apolice> bancoApolices = new HashMap<Integer, Apolice>();
 		
-		FileReader file = new FileReader("ApolicesTodas.txt");
+		
+		//Integer id=0;
+		
+		FileReader file = new FileReader("files/ApolicesTodas.txt");
 		BufferedReader leitura = new BufferedReader(file);
 		
 		String linha = leitura.readLine();
@@ -48,18 +56,19 @@ public class ApoliceLoader implements ApplicationRunner{
 					
 				 apoliceAuto.setSeguradoraContratada(campos[3]);
 				 
-				 LocalDate dataInicial = LocalDate.parse(campos[4],formatador);
-				 apoliceAuto.setVigenciaInicial(dataInicial);
-				 LocalDate dataFinal = LocalDate.parse(campos[5],formatador);
-				 apoliceAuto.setVigenciaFinal(dataFinal);
+				 
+				 apoliceAuto.setVigenciaInicial(campos[4]);
+				
+				 apoliceAuto.setVigenciaFinal(campos[5]);
 				 apoliceAuto.setValor(Float.valueOf(campos[6]));
-				 apoliceAuto.setNumero(campos[7]);
+				 apoliceAuto.setNumeroDaApolice(campos[7]);
 				 apoliceAuto.setPlaca(campos[8]);
 				 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
 				
 			
-				 apoliceAuto.setId(++id);
-				 bancoApolices.put(id, apoliceAuto);
+				 //apoliceAuto.setId(++id);
+				 
+				 apoliceService.incluir(apoliceAuto);
 				 break;
 			
 			 case "V":
@@ -71,10 +80,8 @@ public class ApoliceLoader implements ApplicationRunner{
 					
 				 apoliceVida.setSeguradoraContratada(campos[3]);
 				 
-				 LocalDate dataInicialVida = LocalDate.parse(campos[4],formatadorVida); 
-				 apoliceVida.setVigenciaInicial(dataInicialVida);
-				 LocalDate dataFinalVida = LocalDate.parse(campos[5],formatadorVida);
-				 apoliceVida.setVigenciaFinal(dataFinalVida);
+				
+				 apoliceVida.setVigenciaFinal(campos[5]);
 				 apoliceVida.setValor(Float.valueOf(campos[6]));
 				 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));
 				 
@@ -99,7 +106,8 @@ public class ApoliceLoader implements ApplicationRunner{
 				 }
 			
 				 apoliceVida.setCobertura(cobertura);
-				 bancoApolices.put(id, apoliceVida);
+				
+				 apoliceService.incluir(apoliceVida);
 				 break;
 			
 			}
@@ -109,11 +117,13 @@ public class ApoliceLoader implements ApplicationRunner{
 		System.out.println();
 		System.out.println();
 		
+		
+		
 		System.out.println("|=|=|=|=|=|=|Banco com todas as Apolices:|=|=|=|=|=|=|");
-		System.out.println();
-		for(Apolice apolice: bancoApolices.values()) {
-			System.out.println("Banco com todas as Apolices: "+ apolice);
-		}
+		//for(Apolice bancoApolice: ApoliceService.bancoApolices.values()) {
+			//System.out.println("terere"+bancoApolice);
+	//	}
+		System.out.println(apoliceService.exibir());
 		System.out.println();
 		System.out.println("|=|=|=|=|=|=|=|=|=|=|=|=||=|=|=|=|=|=||=|=|=|=|=|=|=|=|");
 		

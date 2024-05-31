@@ -14,7 +14,7 @@ import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 
-//@Component
+@Component
 public class ApoliceAutoLoader implements ApplicationRunner {
 	
 	@Autowired
@@ -24,7 +24,7 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 	
 		
-		FileReader file = new FileReader("ApoliceAuto.txt");
+		FileReader file = new FileReader("files/ApoliceAuto.txt");
 		BufferedReader leitura = new BufferedReader(file);
 		
 		String linha = leitura.readLine();
@@ -36,17 +36,16 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 			
 		
 			ApoliceAuto apoliceAuto = new ApoliceAuto();
-			apoliceAuto.setApoliceContratante(campos[0]);
-		
-			apoliceAuto.setSeguradoraContratada(campos[1]);
-			
+			apoliceAuto.setTipoSeguro("a");
+			apoliceAuto.setApoliceContratante(campos[0]);	
+			apoliceAuto.setSeguradoraContratada(campos[1]);	
 			apoliceAuto.setValor(Float.valueOf(campos[2]));
+			apoliceAuto.setBonusApolice(Integer.valueOf(campos[3]));
+			apoliceAuto.setNumeroDaApolice(campos[4]);
 			
-			apoliceAuto.setNumero(campos[3]);
+			apoliceAuto.setPlaca(campos[5]);
 			
-			apoliceAuto.setPlaca(campos[4]);
-			
-			apoliceAuto.setBeneficiario(campos[5]);
+			apoliceAuto.setBeneficiario(campos[6]);
 			apoliceAutoService.incluir(apoliceAuto);
 			
 			System.out.println(apoliceAuto);

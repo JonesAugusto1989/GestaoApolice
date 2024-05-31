@@ -1,0 +1,7 @@
+s;650.682.670-31;Elizabeth Stratovarius;elizabeth@teste.com.br
+a;Elizabeth Stratovarius;650.682.670-31;Porto Seguro;10/10/2023;10/10/2024;51f;Auto123;ltn-4f84;0
+a;Elizabeth Stratovarius;650.682.670-31;Azul Seguro;05/07/2022;09/07/2024;51f;Auto456;TOK-8X19;1
+s;355.008.630-02;Marcos Supimpa;marcosdoopalao@xunados.com.br
+v;Xunados ltda;Marcos Supimpa;Azul Seguros;01/02/2023;12/12/2024;31f;false;Cobertura1,cobertura2,cobertura3
+s;75.596.023/0001-00;Empresa de Docinho;doceteriaDocinho@docinhos.com.br
+a;Empresa de Docinho;75.596.023/0001-00;Chubb;08/05/2023;08/05/2024;51f;Auto444;KTP-4X11;10

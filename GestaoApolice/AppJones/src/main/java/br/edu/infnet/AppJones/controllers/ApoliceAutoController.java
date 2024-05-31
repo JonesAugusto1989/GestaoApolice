@@ -24,20 +24,19 @@ public class ApoliceAutoController {
 		return apoliceAutoService.exibir();
 	}
 	
-	@GetMapping("/ApoliceAuto/{id}")
-	public ApoliceAuto obterPorId(@PathVariable Integer id) {
-		return apoliceAutoService.obterPorId(id);
-		
-	}
-	
 	@PostMapping(value = "/ApoliceAuto/incluir")
 	public void incluir(@RequestBody ApoliceAuto apoliceAuto) {
 		System.out.println("####ApoliceAuto: " + apoliceAuto);
 		apoliceAutoService.incluir(apoliceAuto);
 	}
 	
+	@GetMapping("/ApoliceAuto/{id}")
+	public ApoliceAuto obterPorId(@PathVariable Integer id) {
+		return apoliceAutoService.obterPorId(id);	
+	}
+	
 	@DeleteMapping("/ApoliceAuto/{id}/exluir")
-	public void excluir(Integer id) {
+	public void excluir(@PathVariable Integer id) {
 		apoliceAutoService.exluir(id);
 	}
 	

@@ -14,7 +14,7 @@ import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 
-//@Component
+@Component
 public class ApoliceVidaLoader implements ApplicationRunner{
 
 	@Autowired
@@ -27,7 +27,7 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 		Integer id=0;
 		
 		
-		FileReader file = new FileReader("ApoliceVida.txt");
+		FileReader file = new FileReader("files/ApoliceVida.txt");
 		BufferedReader leitura = new BufferedReader(file);
 		
 		String linha = leitura.readLine();
@@ -39,9 +39,9 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 			
 		
 			ApoliceVida apoliceVida = new ApoliceVida();
+			apoliceVida.setTipoSeguro("v");
 			apoliceVida.setApoliceContratante((campos[0]));
 			apoliceVida.setSeguradoraContratada((campos[1]));
-			apoliceVida.setId(++id);
 			valor.parseFloat(campos[2]);
 			apoliceVida.setValor(Float.valueOf(campos[2]));
 			

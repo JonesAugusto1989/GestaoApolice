@@ -2,17 +2,16 @@ package br.edu.infnet.AppJones.model.domain;
 
 public class ApoliceAuto extends Apolice{
 	
-	private String numero;
+	private String numeroDaApolice;
 	private String placa;
 	private int bonusApolice;
-	
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
 
+	public String getNumeroDaApolice() {
+		return numeroDaApolice;
+	}
+	public void setNumeroDaApolice(String numeroDaApolice) {
+		this.numeroDaApolice = numeroDaApolice;
+	}
 	public int getBonusApolice() {
 		return bonusApolice;
 	}
@@ -27,7 +26,7 @@ public class ApoliceAuto extends Apolice{
 	}
 	@Override
 	public String toString() {
-		return super.toString()+" ApoliceAuto [placa=" + placa + ", numero=" +numero
+		return super.toString()+" ApoliceAuto [placa=" + placa + ", numero=" + numeroDaApolice
 				 + "]";
 	}
 
