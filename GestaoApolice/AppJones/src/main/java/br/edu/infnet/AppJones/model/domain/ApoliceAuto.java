@@ -1,5 +1,10 @@
 package br.edu.infnet.AppJones.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="TApoliceAuto")
 public class ApoliceAuto extends Apolice{
 	
 	private String numeroDaApolice;

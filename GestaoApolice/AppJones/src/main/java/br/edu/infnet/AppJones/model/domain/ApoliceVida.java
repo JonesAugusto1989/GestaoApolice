@@ -1,7 +1,12 @@
 package br.edu.infnet.AppJones.model.domain;
 
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
+
+@Entity
+@Table(name="TApoliceVida")
 public class ApoliceVida extends Apolice{
 	
 	private boolean Internacional;

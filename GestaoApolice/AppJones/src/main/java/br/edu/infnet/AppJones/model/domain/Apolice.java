@@ -3,8 +3,21 @@ package br.edu.infnet.AppJones.model.domain;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="TApolice")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Apolice {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id = 0;
 	private String tipoSeguro;
 	private String beneficiario;
