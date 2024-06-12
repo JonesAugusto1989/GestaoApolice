@@ -10,11 +10,17 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JacksonInject.Value;
+
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
+import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 
+@Order(2)
 @Component
 public class ApoliceAutoLoader implements ApplicationRunner {
 	
@@ -47,6 +53,7 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 			apoliceAuto.setBeneficiario(campos[6]);
 			apoliceAuto.setVigenciaInicial(campos[7]);	
 			apoliceAuto.setVigenciaFinal(campos[8]);
+			apoliceAuto.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
 			apoliceAutoService.incluir(apoliceAuto);
 			
 			System.out.println(apoliceAuto);

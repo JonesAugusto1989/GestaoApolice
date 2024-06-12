@@ -9,12 +9,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 
+@Order(3)
 @Component
 public class ApoliceVidaLoader implements ApplicationRunner{
 
@@ -49,7 +51,7 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 			apoliceVida.setBeneficiario(campos[4]);
 			apoliceVida.setVigenciaInicial(campos[5]);	
 			apoliceVida.setVigenciaFinal(campos[6]);
-			
+			apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[7])));
 			apoliceVidaService.incluir(apoliceVida);
 		
 			linha = leitura.readLine();

@@ -13,18 +13,26 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
+import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
+import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
+@Order(1)
 @Component
 public class SeguradoraLoader implements ApplicationRunner{
 
 	@Autowired
 	private SeguradoraService seguradoraService;
+	@Autowired
+	private ApoliceVidaService apoliceVidaService;
+	@Autowired
+	private ApoliceAutoService apoliceAutoService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -49,6 +57,7 @@ public class SeguradoraLoader implements ApplicationRunner{
 					segurador.setEmail(campos[3]);
 					
 					seguradoraService.incluir(segurador);
+					
 					break;
 					
 				 case "A":
@@ -69,8 +78,11 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 apoliceAuto.setNumeroDaApolice(campos[7]);
 					 apoliceAuto.setPlaca(campos[8]);
 					 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
-					 segurador.getApolices().add(apoliceAuto);		
 					 
+					 segurador.getApolices().add(apoliceAuto);		
+					 apoliceAuto.setSegurado(segurador);
+					 
+					 apoliceAutoService.incluir(apoliceAuto);
 					break;
 					
 				 case "V":
@@ -91,13 +103,13 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 
 					 String linhaSub = campos[8];
 					 int i=0;
-					 
+					apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
 					 List<String> cobertura = new ArrayList<String>();
 					 String[] subcampos;
 					 subcampos = linhaSub.split(",");
 					 while(linhaSub!=null) {
 						 
-						if(i >= subcampos.length-1) {
+						if(i >= subcampos.length) {
 							linhaSub = null;
 						}else {
 							cobertura.add(subcampos[i]);
@@ -108,9 +120,11 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 }
 				
 					 apoliceVida.setCobertura(cobertura);
+					 apoliceVida.setSegurado(segurador);
+					 apoliceVidaService.incluir(apoliceVida);
 					 segurador.getApolices().add(apoliceVida);
-					 
-					 break;
+
+			 break;
 				
 			
 			default:

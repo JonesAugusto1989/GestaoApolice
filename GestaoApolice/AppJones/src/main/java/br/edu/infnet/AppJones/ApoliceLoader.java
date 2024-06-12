@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.AppJones.model.domain.Apolice;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
+import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceService;
 
 @Component
@@ -28,11 +29,7 @@ public class ApoliceLoader implements ApplicationRunner{
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		//Map<Integer, Apolice> bancoApolices = new HashMap<Integer, Apolice>();
-		
-		
-		//Integer id=0;
+	
 		
 		FileReader file = new FileReader("files/ApolicesTodas.txt");
 		BufferedReader leitura = new BufferedReader(file);
@@ -64,9 +61,9 @@ public class ApoliceLoader implements ApplicationRunner{
 				 apoliceAuto.setNumeroDaApolice(campos[7]);
 				 apoliceAuto.setPlaca(campos[8]);
 				 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
-				
+				 apoliceAuto.setSegurado(new Seguradora(Integer.valueOf(campos[10])));
 			
-				 //apoliceAuto.setId(++id);
+				 
 				 
 				 apoliceService.incluir(apoliceAuto);
 				 break;
@@ -84,6 +81,7 @@ public class ApoliceLoader implements ApplicationRunner{
 				 apoliceVida.setVigenciaFinal(campos[5]);
 				 apoliceVida.setValor(Float.valueOf(campos[6]));
 				 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));
+				 apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
 				 
 				 String linhaSub = campos[8];
 				 int i=0;
@@ -95,7 +93,7 @@ public class ApoliceLoader implements ApplicationRunner{
 					 
 					 
 					
-					if(i >= subcampos.length-1) {
+					if(i >= subcampos.length) {
 						linhaSub = null;
 					}else {
 						cobertura.add(subcampos[i]);
@@ -106,7 +104,7 @@ public class ApoliceLoader implements ApplicationRunner{
 				 }
 			
 				 apoliceVida.setCobertura(cobertura);
-				
+				 
 				 apoliceService.incluir(apoliceVida);
 				 break;
 			

@@ -31,8 +31,20 @@ public abstract class Apolice {
 	private float valor;
 	@ManyToOne
 	@JoinColumn(name = "idSegurador")
+	
+	
 	private Seguradora segurado;
 	
+	public Seguradora getSegurado() {
+		return segurado;
+	}
+
+
+	public void setSegurado(Seguradora segurado) {
+		this.segurado = segurado;
+	}
+
+
 	public Apolice() {
 		id++;
 	}

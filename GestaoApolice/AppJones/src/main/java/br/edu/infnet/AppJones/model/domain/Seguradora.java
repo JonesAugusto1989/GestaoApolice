@@ -28,8 +28,16 @@ public class Seguradora {
 	@JoinColumn(name = "idSegurador")
 	private List<Apolice> apolices;
 	
+ 
+	
 	public Seguradora() {
 		this.apolices = new ArrayList<Apolice>();
+	}
+	
+	public Seguradora(Integer id) {
+		this();
+		this.id = id;
+		
 	}
 	
 	public Integer getId() {
