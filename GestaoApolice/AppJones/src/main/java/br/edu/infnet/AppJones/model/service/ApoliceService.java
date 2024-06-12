@@ -3,35 +3,41 @@ package br.edu.infnet.AppJones.model.service;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.model.domain.Apolice;
+import br.edu.infnet.AppJones.model.repository.ApoliceRepository;
 
 @Service
 public class ApoliceService {
 	
-	private static Map<Integer, Apolice> bancoApolices = new HashMap<Integer, Apolice>();
-	private static Integer idApolice=0;
+	private ApoliceRepository apoliceRepository;
+	
+	public ApoliceService(ApoliceRepository apoliceRepository) {
+		this.apoliceRepository = apoliceRepository;
+	}
+
 	
 	public void incluir(Apolice apolice) {
-		apolice.setId(++idApolice);
-		bancoApolices.put(apolice.getId(), apolice);
-		
+
+		apoliceRepository.save(apolice);	
 	}
 	
 	
 	public Collection<Apolice> exibir(){
 		
-		return bancoApolices.values();
+		Collection<Apolice> findAll = (Collection<Apolice>)apoliceRepository.findAll();
+		return findAll;
 	}
 	
 	public Apolice obterPorId(Integer id) {
-		return bancoApolices.get(id);
+		return apoliceRepository.findById(id).orElse(null);
 	}
 	
 	public void excluir(Integer id) {
-		bancoApolices.remove(id);
+		apoliceRepository.deleteById(id);
 	}
 
 }

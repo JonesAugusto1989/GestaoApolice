@@ -8,29 +8,32 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
+import br.edu.infnet.AppJones.model.repository.SeguradoraRepository;
 
 @Service
 public class SeguradoraService {
 
-	private static Map<Integer, Seguradora> bancoSeguradora = new HashMap<Integer, Seguradora>();
-	private static Integer id=0;
+	private SeguradoraRepository seguradoraRepository;
+	
+	public SeguradoraService(SeguradoraRepository seguradoraRepository) {
+		this.seguradoraRepository = seguradoraRepository;
+	}
 	
 	public void incluir(Seguradora segurador) {
-		segurador.setId(++id);
-		bancoSeguradora.put(segurador.getId(),segurador);
+		seguradoraRepository.save(segurador);
 	}
 	
 	public Collection<Seguradora> exibir() {
-		return bancoSeguradora.values();
+		return (Collection<Seguradora>) seguradoraRepository.findAll();
 	}
 	
 	public Seguradora obterPorId(Integer id) {
-		return bancoSeguradora.get(id);
+		return seguradoraRepository.findById(id).orElse(null);
 		
 	}
 
 	public void exluir(Integer id) {
-		bancoSeguradora.remove(id);
+		seguradoraRepository.deleteById(id);
 		
 	}
 	

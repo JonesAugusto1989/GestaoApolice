@@ -1,5 +1,7 @@
 package br.edu.infnet.AppJones.model.domain;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -10,6 +12,7 @@ public class ApoliceAuto extends Apolice{
 	private String numeroDaApolice;
 	private String placa;
 	private int bonusApolice;
+	
 
 	public String getNumeroDaApolice() {
 		return numeroDaApolice;

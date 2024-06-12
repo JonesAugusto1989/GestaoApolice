@@ -9,6 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,6 +29,9 @@ public abstract class Apolice {
 	private LocalDate vigenciaInicial;
 	private LocalDate vigenciaFinal;
 	private float valor;
+	@ManyToOne
+	@JoinColumn(name = "idSegurador")
+	private Seguradora segurado;
 	
 	public Apolice() {
 		id++;

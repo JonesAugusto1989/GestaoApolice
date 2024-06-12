@@ -80,7 +80,7 @@ public class ApoliceLoader implements ApplicationRunner{
 					
 				 apoliceVida.setSeguradoraContratada(campos[3]);
 				 
-				
+				 apoliceVida.setVigenciaInicial(campos[4]);
 				 apoliceVida.setVigenciaFinal(campos[5]);
 				 apoliceVida.setValor(Float.valueOf(campos[6]));
 				 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));

@@ -3,6 +3,7 @@ package br.edu.infnet.AppJones;
 import java.io.BufferedReader;
 
 import java.io.FileReader;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,10 +43,10 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 			apoliceAuto.setValor(Float.valueOf(campos[2]));
 			apoliceAuto.setBonusApolice(Integer.valueOf(campos[3]));
 			apoliceAuto.setNumeroDaApolice(campos[4]);
-			
 			apoliceAuto.setPlaca(campos[5]);
-			
 			apoliceAuto.setBeneficiario(campos[6]);
+			apoliceAuto.setVigenciaInicial(campos[7]);	
+			apoliceAuto.setVigenciaFinal(campos[8]);
 			apoliceAutoService.incluir(apoliceAuto);
 			
 			System.out.println(apoliceAuto);

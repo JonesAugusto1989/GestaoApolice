@@ -8,29 +8,34 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
+import br.edu.infnet.AppJones.model.repository.ApoliceAutoRepository;
 
 @Service
 public class ApoliceAutoService {
 	
-	private static Map<Integer, ApoliceAuto> bancoAuto = new HashMap<Integer, ApoliceAuto>();
-	private static Integer id=0;
+	
+	private ApoliceAutoRepository apoliceAutoRepository;
+	
+	public ApoliceAutoService(ApoliceAutoRepository apoliceAutoRepository) {
+		this.apoliceAutoRepository = apoliceAutoRepository;
+	}
+	
 	
 	public void incluir(ApoliceAuto apoliceAuto) {
-		apoliceAuto.setId(++id);
-		bancoAuto.put(apoliceAuto.getId(),apoliceAuto);
+		apoliceAutoRepository.save(apoliceAuto);
 	}
 	
 	public Collection<ApoliceAuto> exibir() {
-		return bancoAuto.values();
+		return (Collection<ApoliceAuto>) apoliceAutoRepository.findAll();
 	}
 	
 	public ApoliceAuto obterPorId(Integer id) {
-		return bancoAuto.get(id);
+		return apoliceAutoRepository.findById(id).orElse(null);
 		
 	}
 
 	public void exluir(Integer id) {
-		bancoAuto.remove(id);
+		apoliceAutoRepository.deleteById(id);
 		
 	}
 	
