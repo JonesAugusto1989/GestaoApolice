@@ -9,4 +9,6 @@ import br.edu.infnet.AppJones.model.domain.Seguradora;
 @Repository
 public interface SeguradoraRepository extends CrudRepository<Seguradora, Integer>{
 
+	Seguradora findByCpfCnpj(String cpfCnpj);
+	
 }

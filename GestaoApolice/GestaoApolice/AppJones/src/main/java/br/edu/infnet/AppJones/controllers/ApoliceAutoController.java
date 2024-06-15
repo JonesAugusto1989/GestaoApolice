@@ -40,4 +40,9 @@ public class ApoliceAutoController {
 		apoliceAutoService.exluir(id);
 	}
 	
+	@GetMapping("/ApoliceAuto/{placa}/placa")
+	public Collection<ApoliceAuto> obterPorId(@PathVariable String placa) {
+		return apoliceAutoService.findByPlaca(placa);	
+	}
+	
 }

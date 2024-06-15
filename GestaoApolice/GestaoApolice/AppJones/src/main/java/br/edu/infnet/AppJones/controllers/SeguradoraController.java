@@ -43,5 +43,14 @@ public class SeguradoraController {
 	}
 	
 	
+	
+	@GetMapping("/segura/{cpfcnpj}/cpfcnpj")
+	public Seguradora BuscarPorCpfSegurador(@PathVariable String cpfcnpj) {
+		
+		
+		return seguradoraService.obterPorCpfCnpj(cpfcnpj);
+		
+	}
+	
 
 }

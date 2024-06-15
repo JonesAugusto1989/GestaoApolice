@@ -1,9 +1,6 @@
 package br.edu.infnet.AppJones.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,8 +18,14 @@ public class ApoliceService {
 
 	
 	public void incluir(Apolice apolice) {
+		
+		try {
+			apoliceRepository.save(apolice);
+		}catch(Exception e) {
+			System.err.println("[ERROR]" + e.getMessage());
+		}
 
-		apoliceRepository.save(apolice);	
+			
 	}
 	
 	
@@ -42,6 +45,11 @@ public class ApoliceService {
 	
 	public long contador() {
 		return apoliceRepository.count();
+	}
+	
+	public Collection<Apolice> findByApoliceContratante(String apoliceContratante) {
+		System.out.println(apoliceRepository.findByApoliceContratante(apoliceContratante));
+		return apoliceRepository.findByApoliceContratante(apoliceContratante);
 	}
 
 

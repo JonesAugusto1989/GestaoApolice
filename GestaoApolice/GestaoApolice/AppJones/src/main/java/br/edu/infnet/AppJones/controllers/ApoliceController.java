@@ -3,6 +3,7 @@ package br.edu.infnet.AppJones.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,5 +36,13 @@ public class ApoliceController {
 	public void excluirPorId(@PathVariable("id") Integer id) {
 		apoliceService.excluir(id);
 	}
+	
+	@GetMapping("/{apolice}/apoliceContratante")
+	public Collection<Apolice> BuscarApoliceContratante(@PathVariable String apolice) {
+	System.out.println(apoliceService.findByApoliceContratante(apolice));
+		return apoliceService.findByApoliceContratante(apolice);
+		
+	}
+	
 	
 }

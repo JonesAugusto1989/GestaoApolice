@@ -1,16 +1,24 @@
 package br.edu.infnet.AppJones.model.domain;
 
-import java.time.LocalDate;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="TApoliceAuto")
 public class ApoliceAuto extends Apolice{
 	
+	@NotBlank(message = "É necessario preencher o campo numeroDaApolice")
 	private String numeroDaApolice;
+	
+	
+	@Column(name = "csPlaca")
+	@NotBlank(message = "É necessario preencher o campo placa")
 	private String placa;
+	
+	@Column(name = "csBonusApolice")
+	
 	private int bonusApolice;
 	
 

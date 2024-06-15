@@ -14,11 +14,11 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/">App de Gestão de Apolice</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/home">App de Gestï¿½o de Apolice</a></li>
 				<li class="nav-item"><a class="nav-link" href="/seguradora/listagem">Seguradora</a></li>
-				<li class="nav-item"><a class="nav-link" href="/apolice/listagem">Apólice</a></li>
-				<li class="nav-item"><a class="nav-link" href="/apoliceAuto/listagem">Apólice de Automovel</a></li>
-				<li class="nav-item"><a class="nav-link" href="/apoliceVida/listagem">Apólice de Vida</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apolice/listagem">Apï¿½lice</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apoliceAuto/listagem">Apï¿½lice de Automovel</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apoliceVida/listagem">Apï¿½lice de Vida</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -26,14 +26,14 @@
 	<div class="container mt-3">
 
 		<span class="badge rounded-pill bg-primary">Seguradora:
-			${qtdeSegurado}</span> <span class="badge rounded-pill bg-secondary">Apólice:
-			${qtdeApolice}</span> <span class="badge rounded-pill bg-success">Apólice de Automovel:
-			${qtdeApoliceAuto}</span> <span class="badge rounded-pill bg-danger">Apólice de Vida:
+			${qtdeSegurado}</span> <span class="badge rounded-pill bg-secondary">Apï¿½lice:
+			${qtdeApolice}</span> <span class="badge rounded-pill bg-success">Apï¿½lice de Automovel:
+			${qtdeApoliceAuto}</span> <span class="badge rounded-pill bg-danger">Apï¿½lice de Vida:
 			${qtdeApoliceVida}</span>
 
 		<c:if test="${not empty listagem}">
 			<h2>AppVenda</h2>
-			<p>GestÃ£o de vendas de Apólice:</p>
+			<p>GestÃ£o de vendas de Apï¿½lice:</p>
 			<table class="table">
 				<thead class="table-dark">
 					<tr>
@@ -44,6 +44,7 @@
 					<c:forEach var="item" items="${listagem}">
 						<tr>
 							<td>${item}</td>
+							<td>Deletar</td>
 						</tr>
 					</c:forEach>
 				</tbody>

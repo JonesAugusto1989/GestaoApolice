@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "TSeguradora")
@@ -21,10 +27,21 @@ public class Seguradora {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String cpf_cnpj;
+	
+	@Column(unique = true,name="csCpfCnpj")
+	private String cpfCnpj;
+	
+	@NotBlank(message = "É necessario preencher o campo nome")
+	@Size(min = 3,max = 100)
+	@Column(name="dsNome")
 	private String nome;
+	
+	@Email(message = "Email tem que ser valido")
 	private String email;
+	
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JsonManagedReference
 	@JoinColumn(name = "idSegurador")
 	private List<Apolice> apolices;
 	
@@ -47,10 +64,10 @@ public class Seguradora {
 		this.id = id;
 	}
 	public String getCpf_cnpj() {
-		return cpf_cnpj;
+		return cpfCnpj;
 	}
 	public void setCpf_cnpj(String cpf_cnpj) {
-		this.cpf_cnpj = cpf_cnpj;
+		this.cpfCnpj = cpf_cnpj;
 	}
 	public List<Apolice> getApolices() {
 		return apolices;
@@ -72,7 +89,7 @@ public class Seguradora {
 	}
 	@Override
 	public String toString() {
-		return "Seguradora [id=" + id + ", cpf_cnpj=" + cpf_cnpj + ", nome=" + nome + ", email=" + email + ", apolices="
+		return "Seguradora [id=" + id + ", cpf_cnpj=" + cpfCnpj + ", nome=" + nome + ", email=" + email + ", apolices="
 				+ apolices.size() + "]";
 	}
 	

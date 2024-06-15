@@ -1,23 +1,20 @@
 package br.edu.infnet.AppJones.model.domain;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 
 @Entity
 @Table(name="TApoliceVida")
 public class ApoliceVida extends Apolice{
 	
+	@Column(name = "flInternacional")
 	private boolean Internacional;
-	
-	
+
+	@Size(min = 5)
 	private String cobertura;
-	
-	
-	
-	
 	
 	@Override
 	public String toString() {

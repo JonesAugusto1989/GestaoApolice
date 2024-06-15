@@ -1,0 +1,5 @@
+Min,Max = int float
+size,not null = texto
+
+control+shift+o - retira todos os imports não utilizados
+control+shift+f - identa

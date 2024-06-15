@@ -1,13 +1,10 @@
 package br.edu.infnet.AppJones.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
-import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.repository.ApoliceAutoRepository;
 
 @Service
@@ -17,7 +14,13 @@ public class ApoliceAutoService {
 	private ApoliceAutoRepository apoliceAutoRepository;
 	
 	public ApoliceAutoService(ApoliceAutoRepository apoliceAutoRepository) {
-		this.apoliceAutoRepository = apoliceAutoRepository;
+		
+		try {
+			this.apoliceAutoRepository = apoliceAutoRepository;
+		}catch(Exception e) {
+			System.err.println("[ERROR]" + e.getMessage());
+		}
+		
 	}
 	
 	
@@ -41,6 +44,10 @@ public class ApoliceAutoService {
 	
 	public long contador() {
 		return apoliceAutoRepository.count();
+	}
+	
+	public Collection<ApoliceAuto> findByPlaca(String placa){
+		return apoliceAutoRepository.findByPlaca(placa);
 	}
 
 }

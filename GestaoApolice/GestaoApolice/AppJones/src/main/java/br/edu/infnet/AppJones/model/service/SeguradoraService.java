@@ -1,12 +1,9 @@
 package br.edu.infnet.AppJones.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.repository.SeguradoraRepository;
 
@@ -20,7 +17,14 @@ public class SeguradoraService {
 	}
 	
 	public void incluir(Seguradora segurador) {
-		seguradoraRepository.save(segurador);
+		
+		try {
+		
+			seguradoraRepository.save(segurador);
+		}catch(Exception e) {
+			System.err.println("[ERROR]" + e.getMessage());
+		}
+		
 	}
 	
 	public Collection<Seguradora> exibir() {
@@ -29,6 +33,11 @@ public class SeguradoraService {
 	
 	public Seguradora obterPorId(Integer id) {
 		return seguradoraRepository.findById(id).orElse(null);
+		
+	}
+	
+	public Seguradora obterPorCpfCnpj(String cpfCnpj) {
+		return seguradoraRepository.findByCpfCnpj(cpfCnpj);
 		
 	}
 
