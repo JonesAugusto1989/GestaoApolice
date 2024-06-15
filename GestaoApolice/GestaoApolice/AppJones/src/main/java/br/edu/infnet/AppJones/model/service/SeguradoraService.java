@@ -37,5 +37,8 @@ public class SeguradoraService {
 		
 	}
 	
-	
+	public long contador() {
+		return seguradoraRepository.count();
+	}
+
 }

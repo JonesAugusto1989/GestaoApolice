@@ -39,5 +39,8 @@ public class ApoliceAutoService {
 		
 	}
 	
+	public long contador() {
+		return apoliceAutoRepository.count();
+	}
 
 }

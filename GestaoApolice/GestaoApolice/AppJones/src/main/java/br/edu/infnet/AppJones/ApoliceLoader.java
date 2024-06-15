@@ -83,25 +83,8 @@ public class ApoliceLoader implements ApplicationRunner{
 				 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));
 				 apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
 				 
-				 String linhaSub = campos[8];
-				 int i=0;
-				 
-				 List<String> cobertura = new ArrayList<String>();
-				 String[] subcampos;
-				 subcampos = linhaSub.split(",");
-				 while(linhaSub!=null) {
-					 
-					 
-					
-					if(i >= subcampos.length) {
-						linhaSub = null;
-					}else {
-						cobertura.add(subcampos[i]);
-					}
-					 i++;		 
-					
-					 
-				 }
+				
+				 String cobertura = campos[8];
 			
 				 apoliceVida.setCobertura(cobertura);
 				 

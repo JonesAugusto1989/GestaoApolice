@@ -8,32 +8,32 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <meta charset="ISO-8859-1">
-<title>AppVenda</title>
+<title>AppApolice</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container-fluid">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/">AppVenda</a></li>
-				<li class="nav-item"><a class="nav-link" href="/vendedor/listagem">Vendedores</a></li>
-				<li class="nav-item"><a class="nav-link" href="/produto/listagem">Produtos</a></li>
-				<li class="nav-item"><a class="nav-link" href="/alimenticio/listagem">AlimentÃ­cios</a></li>
-				<li class="nav-item"><a class="nav-link" href="/eletronico/listagem">EletrÃ´nicos</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/">App de Gestão de Apolice</a></li>
+				<li class="nav-item"><a class="nav-link" href="/seguradora/listagem">Seguradora</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apolice/listagem">Apólice</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apoliceAuto/listagem">Apólice de Automovel</a></li>
+				<li class="nav-item"><a class="nav-link" href="/apoliceVida/listagem">Apólice de Vida</a></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="container mt-3">
 
-		<span class="badge rounded-pill bg-primary">Vendedor:
-			${qtdeVendedor}</span> <span class="badge rounded-pill bg-secondary">Produto:
-			${qtdeProduto}</span> <span class="badge rounded-pill bg-success">AlimentÃ­cio:
-			${qtdeAlimenticio}</span> <span class="badge rounded-pill bg-danger">EletrÃ´nico:
-			${qtdeEletronico}</span>
+		<span class="badge rounded-pill bg-primary">Seguradora:
+			${qtdeSegurado}</span> <span class="badge rounded-pill bg-secondary">Apólice:
+			${qtdeApolice}</span> <span class="badge rounded-pill bg-success">Apólice de Automovel:
+			${qtdeApoliceAuto}</span> <span class="badge rounded-pill bg-danger">Apólice de Vida:
+			${qtdeApoliceVida}</span>
 
 		<c:if test="${not empty listagem}">
 			<h2>AppVenda</h2>
-			<p>GestÃ£o de vendas de produtos:</p>
+			<p>GestÃ£o de vendas de Apólice:</p>
 			<table class="table">
 				<thead class="table-dark">
 					<tr>
@@ -55,11 +55,11 @@
 		        <div class="card mx-auto" style="width: 18rem;">
 		            <img src="https://www.learntek.org/blog/wp-content/uploads/2018/05/java2.jpg" class="card-img-top" alt="Foto do Desenvolvedor">
 		            <div class="card-body">
-		                <h5 class="card-title">Elberth LC Moraes</h5>
-		                <p class="card-text"><strong>Telefone:</strong> (21) 99601-6255</p>
-		                <p class="card-text">Atuo como professor universitÃ¡rio desde o dia primeiro de abril de dois mil e onze. Neste dia descobri mais uma verdade na minha vida: observar como as pessoas aprendem e ensinam.</p>
-		                <a href="https://github.com/Banco-de-Dados-e-Persistencia-em-Java" class="btn btn-primary">GitHub do Projeto</a>
-		                <a href="https://www.linkedin.com/in/elberth/" class="btn btn-secondary">LinkedIn</a>
+		                <h5 class="card-title">JONES</h5>
+		                <p class="card-text"><strong>Telefone:</strong> (21) 999999-2222</p>
+		                <p class="card-text">Futuro Desenvolvedor</p>
+		                <a href="https://github.com/JonesAugusto1989/GestaoApolice/" class="btn btn-primary">GitHub do Projeto</a>
+		                <a href="https://www.linkedin.com/in/jones-augusto-santos-da-silva-paranhos-b79816100/" class="btn btn-secondary">LinkedIn</a>
 		            </div>
 		        </div>
 		    </div>

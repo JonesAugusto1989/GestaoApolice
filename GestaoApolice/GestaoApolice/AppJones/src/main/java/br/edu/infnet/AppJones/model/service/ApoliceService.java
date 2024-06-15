@@ -39,5 +39,10 @@ public class ApoliceService {
 	public void excluir(Integer id) {
 		apoliceRepository.deleteById(id);
 	}
+	
+	public long contador() {
+		return apoliceRepository.count();
+	}
+
 
 }

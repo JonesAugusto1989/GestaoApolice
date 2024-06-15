@@ -39,5 +39,9 @@ public class ApoliceVidaService {
 		
 	}
 	
+	public long contador() {
+		return apoliceVidaRepository.count();
+	}
+
 
 }

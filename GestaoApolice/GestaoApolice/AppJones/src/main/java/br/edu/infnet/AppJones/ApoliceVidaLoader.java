@@ -47,7 +47,7 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 			apoliceVida.setSeguradoraContratada((campos[1]));
 			valor.parseFloat(campos[2]);
 			apoliceVida.setValor(Float.valueOf(campos[2]));
-			apoliceVida.setCobertura(List.of(campos[3]));
+			apoliceVida.setCobertura(campos[3]);
 			apoliceVida.setBeneficiario(campos[4]);
 			apoliceVida.setVigenciaInicial(campos[5]);	
 			apoliceVida.setVigenciaFinal(campos[6]);

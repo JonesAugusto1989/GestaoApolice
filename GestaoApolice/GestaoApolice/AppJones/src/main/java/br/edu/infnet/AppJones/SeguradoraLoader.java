@@ -101,23 +101,11 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 apoliceVida.setValor(Float.valueOf(campos[6]));
 					 apoliceVida.setInternacional(Boolean.parseBoolean(campos[7]));
 					 
-					 String linhaSub = campos[8];
-					 int i=0;
-					apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
-					 List<String> cobertura = new ArrayList<String>();
-					 String[] subcampos;
-					 subcampos = linhaSub.split(",");
-					 while(linhaSub!=null) {
-						 
-						if(i >= subcampos.length) {
-							linhaSub = null;
-						}else {
-							cobertura.add(subcampos[i]);
-						}
-						 i++;		 
-						
-						 
-					 }
+					 
+					 apoliceVida.setSegurado(new Seguradora(Integer.valueOf(campos[9])));
+					 String cobertura = campos[8];
+					 
+					
 				
 					 apoliceVida.setCobertura(cobertura);
 					 apoliceVida.setSegurado(segurador);

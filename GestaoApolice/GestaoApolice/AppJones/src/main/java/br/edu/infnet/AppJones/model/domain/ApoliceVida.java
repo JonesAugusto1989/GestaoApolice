@@ -1,8 +1,9 @@
 package br.edu.infnet.AppJones.model.domain;
 
 import java.util.List;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 @Entity
@@ -10,7 +11,9 @@ import jakarta.persistence.Table;
 public class ApoliceVida extends Apolice{
 	
 	private boolean Internacional;
-	private List<String> cobertura;
+	
+	
+	private String cobertura;
 	
 	
 	
@@ -26,10 +29,10 @@ public class ApoliceVida extends Apolice{
 	public void setInternacional(boolean internacional) {
 		Internacional = internacional;
 	}
-	public List<String> getCobertura() {
+	public String getCobertura() {
 		return cobertura;
 	}
-	public void setCobertura(List<String> cobertura) {
+	public void setCobertura(String cobertura) {
 		this.cobertura = cobertura;
 	}
 
