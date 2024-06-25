@@ -1,6 +1,0 @@
-a;Elizabeth Stratovarius;650.682.670-31;Porto Seguro;10/10/2023;10/10/2024;51f;Auto123;ltn-4f84;0;1
-v;Xunados ltda;Marcos Supimpa5;Azul Seguros;04/03/2023;12/12/2024;31f;false;Cobertura1,cobertura2,cobertura3;2
-a;Empresa de Docinho;75.596.023/0001-000;Chubb;08/05/2023;08/05/2024;51f;Auto444;KTP-4X11;10;3;
-z;Pão de açucar;58.747.739/0001-416;10/12/2022;10/12/2023;105f;true;Seguro incendio,furtos,problemas hidraulicos;1
-v;Marcos Antonio;806.110.730-994;Porto Seguro;17/06/2024;17/06/2025;99f;true;DHO 30000,Assistencia Funeral,Translado do corpo;2
-a;Marcelo Vital;05.871.753/0001-966;Tokio Marine;04/11/2021;04/11/2022;104f;Auto15872;JEF-2022;5;3

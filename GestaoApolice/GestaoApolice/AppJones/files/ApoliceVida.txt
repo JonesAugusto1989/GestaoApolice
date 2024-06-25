@@ -1,3 +1,0 @@
-1111111111111118;Porto Seguro;50f;DHO 10000;Ana Santos;01/08/2022;01/08/2023;3
-2222222222222225;Azul Seguro;30f;Extravio de bagagem;Michael Jackson;26/02/2022;26/02/2023;2
-3333333333333332;Chubb;5f;Assistencia funeral;Tony Ramos;22/05/2024;22/05/2025;1
