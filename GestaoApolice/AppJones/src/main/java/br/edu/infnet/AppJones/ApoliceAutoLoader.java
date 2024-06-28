@@ -44,7 +44,9 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 		
 			ApoliceAuto apoliceAuto = new ApoliceAuto();
 			apoliceAuto.setTipoSeguro("a");
-			apoliceAuto.setMarcaDoCarro(campos[0]);
+			//apoliceAuto.setMarcaDoCarro(campos[0]);
+			// Carro carro = carroService.obterModelo(campos[0]);
+			//carroService.incluir(carro);
 			apoliceAuto.setSeguradoraContratada(campos[1]);	
 			apoliceAuto.setValor(Float.valueOf(campos[2]));
 			apoliceAuto.setBonusApolice(Integer.valueOf(campos[3]));

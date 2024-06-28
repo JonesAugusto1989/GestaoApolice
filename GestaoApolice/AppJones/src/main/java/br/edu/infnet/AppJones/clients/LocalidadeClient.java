@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.AppJones.model.domain.Endereco;
 import br.edu.infnet.AppJones.model.domain.Estado;
+import br.edu.infnet.AppJones.model.domain.Municipio;
 
 @FeignClient(url = "https://servicodados.ibge.gov.br/api/v1/localidades/",name = "ibge" )
 public interface LocalidadeClient {
@@ -15,6 +16,8 @@ public interface LocalidadeClient {
 	@GetMapping("/estados?orderBy=nome")
 	Collection<Estado> obterEstados();
 	
+	@GetMapping("/estados/{uf}/municipios")
+	Collection<Municipio> obterMunicipios(@PathVariable Integer id);
 	
 	
 }

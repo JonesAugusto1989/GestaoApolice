@@ -17,17 +17,13 @@ public class ApoliceAutoService {
 	
 	public ApoliceAutoService(ApoliceAutoRepository apoliceAutoRepository) {
 		
-		try {
 			this.apoliceAutoRepository = apoliceAutoRepository;
-		}catch(Exception e) {
-			System.err.println("[ERROR]" + e.getMessage());
-		}
-		
 	}
 	
 	
 	public void incluir(ApoliceAuto apoliceAuto) {
 		apoliceAutoRepository.save(apoliceAuto);
+		//System.out.println("Salvando A "+ apoliceAuto.getCarro().getAnoDeFabricacao());
 	}
 	
 	public Collection<ApoliceAuto> exibir() {
@@ -50,12 +46,6 @@ public class ApoliceAutoService {
 	
 	public ApoliceAuto findByPlaca(String placa){
 		return apoliceAutoRepository.findByPlaca(placa);
-	}
-	
-	public Collection <ApoliceAuto> findAllByMarca(String marcaDoCarro){
-		
-		return apoliceAutoRepository.findAllByMarcaDoCarro(Sort.by(Sort.Direction.DESC,"placa"),marcaDoCarro);
-		
 	}
 
 }

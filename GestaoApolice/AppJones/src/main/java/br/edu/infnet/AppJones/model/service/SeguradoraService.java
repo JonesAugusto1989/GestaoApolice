@@ -18,13 +18,9 @@ public class SeguradoraService {
 	}
 	
 	public void incluir(Seguradora segurador) {
-		
-		try {
-		
+
 			seguradoraRepository.save(segurador);
-		}catch(Exception e) {
-			System.err.println("[ERROR]" + e.getMessage());
-		}
+	
 		
 	}
 	

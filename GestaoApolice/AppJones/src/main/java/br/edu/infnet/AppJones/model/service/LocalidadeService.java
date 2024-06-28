@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.clients.LocalidadeClient;
 import br.edu.infnet.AppJones.model.domain.Estado;
+import br.edu.infnet.AppJones.model.domain.Municipio;
 
 @Service
-public class EstadoService {
+public class LocalidadeService {
 	
 	@Autowired
 	private LocalidadeClient localidadeClient;
@@ -25,6 +26,10 @@ public class EstadoService {
 				return (Collection<Estado>) lista;
 		*/
 		return localidadeClient.obterEstados();
+	}
+	
+	public Collection<Municipio> obterMunicipiosPorUF(Integer uf){ 
+		return localidadeClient.obterMunicipios(uf);
 	}
 	
 	

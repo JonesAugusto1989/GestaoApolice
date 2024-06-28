@@ -14,6 +14,6 @@ public interface ApoliceAutoRepository extends CrudRepository<ApoliceAuto, Integ
 	ApoliceAuto findByPlaca(String placa);
 	
 	
-	Collection <ApoliceAuto> findAllByMarcaDoCarro(Sort by,String marcaDoCarro);
+	//Collection <ApoliceAuto> findAllByMarcaDoCarro(Sort by,String marcaDoCarro);
 
 }

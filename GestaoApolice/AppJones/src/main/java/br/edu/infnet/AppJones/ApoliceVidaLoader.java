@@ -51,7 +51,6 @@ public class ApoliceVidaLoader implements ApplicationRunner{
 			apoliceVida.setBeneficiario(campos[4]);
 			apoliceVida.setVigenciaInicial(campos[5]);	
 			apoliceVida.setVigenciaFinal(campos[6]);
-			System.out.println("leitura antes "+campos[7]);
 			apoliceVida.setInternacional(Boolean.valueOf(campos[7]));
 			boolean test = Boolean.valueOf(campos[7]);
 			

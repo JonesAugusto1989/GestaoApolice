@@ -27,12 +27,7 @@ public class EnderecoService {
 		Collection<Endereco> findAll = (Collection<Endereco>)enderecoRepository.findAll();
 		return findAll;
 	}
-	
-	public Endereco obterPorCep(String cep) {
-		
-		return ApiJonesClient.obterPorCep(cep);
-	}
-	
+
 	public long contador() {
 		return enderecoRepository.count();
 	}

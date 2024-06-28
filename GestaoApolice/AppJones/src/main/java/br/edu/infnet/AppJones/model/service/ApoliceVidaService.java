@@ -22,7 +22,6 @@ public class ApoliceVidaService {
 		
 		try {
 			apoliceVidaRepository.save(apoliceVida);
-			System.out.println("TESTE SERVICE "+apoliceVida.isInternacional());
 		}catch(Exception e) {
 			System.err.println("[ERROR]" + e.getMessage());
 		}

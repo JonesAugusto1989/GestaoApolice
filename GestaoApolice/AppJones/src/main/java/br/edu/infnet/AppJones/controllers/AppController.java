@@ -18,7 +18,7 @@ import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 import br.edu.infnet.AppJones.model.service.ApoliceService;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 import br.edu.infnet.AppJones.model.service.EnderecoService;
-import br.edu.infnet.AppJones.model.service.EstadoService;
+import br.edu.infnet.AppJones.model.service.LocalidadeService;
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
 @Controller
@@ -40,7 +40,7 @@ public class AppController {
 	private EnderecoService enderecoService;
 	
 	@Autowired
-	private EstadoService estadoService;
+	private LocalidadeService localidadeService;
 	
 	@Autowired
 	private ApiService apiService;
@@ -53,6 +53,9 @@ public class AppController {
 		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
 		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
 		model.addAttribute("qtdeEndereco",enderecoService.contador());
+		
+		//model.addAttribute("estados",localidadeService.obterMunicipiosPorUF(null));
+		
 		
 		return "home";
 	}
@@ -139,7 +142,7 @@ public class AppController {
 		*/
 		
 		model.addAttribute("Titulo","Listagem de estados");
-		model.addAttribute("listagem",estadoService.obterLista());
+		model.addAttribute("listagem",localidadeService.obterLista());
 		
 		
 		
@@ -168,7 +171,22 @@ public class AppController {
 		return "home";
 	}
 	
-
+	@GetMapping("/municipio/{uf}/listagem")
+	public String listaMunicipios(Model model, @PathVariable Integer uf) {
+		
+		model.addAttribute("qtdeEndereco",enderecoService.contador());
+		model.addAttribute("qtdeSegurado",seguradoraService.contador());
+		model.addAttribute("qtdeApolice",apoliceService.contador());
+		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
+		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
+		
+		
+		model.addAttribute("Titulo","Listagem de estados");
+		model.addAttribute("listagem",localidadeService.obterMunicipiosPorUF(uf));
+		
+		return "home";
+	}
+	
 	
 
 	

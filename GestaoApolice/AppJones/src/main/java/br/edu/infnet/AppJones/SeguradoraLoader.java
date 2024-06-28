@@ -16,12 +16,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.AppJones.clients.ApiJonesClient;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
+import br.edu.infnet.AppJones.model.domain.Carro;
 import br.edu.infnet.AppJones.model.domain.Endereco;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
+import br.edu.infnet.AppJones.model.service.CarroService;
 import br.edu.infnet.AppJones.model.service.EnderecoService;
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
@@ -37,6 +40,11 @@ public class SeguradoraLoader implements ApplicationRunner{
 	private ApoliceAutoService apoliceAutoService;
 	@Autowired
 	private EnderecoService enderecoService;
+	@Autowired
+	private CarroService carroService;
+	
+	@Autowired
+	private ApiJonesClient apiJonesClient;
 	
 	
 	@Override
@@ -57,7 +65,7 @@ public class SeguradoraLoader implements ApplicationRunner{
 			
 				case "S": 
 					
-					Endereco endereco = enderecoService.obterPorCep(campos[4]);
+					Endereco endereco = apiJonesClient.obterPorCep(campos[4]);
 					segurador = new Seguradora();
 					segurador.setCpf_cnpj(campos[1]);
 					segurador.setNome(campos[2]);
@@ -83,7 +91,13 @@ public class SeguradoraLoader implements ApplicationRunner{
 				
 					 apoliceAuto.setVigenciaFinal(campos[5]);
 					 apoliceAuto.setValor(Float.valueOf(campos[6]));
-					 apoliceAuto.setMarcaDoCarro(campos[7]);
+					 //apoliceAuto.setMarcaDoCarro(campos[7]);
+					Carro carro = carroService.obterModelo(campos[7]);
+
+					
+					
+					 apoliceAuto.setCarro(carro);
+					 System.out.println("get carro: "+ apoliceAuto.getCarro());
 					 apoliceAuto.setPlaca(campos[8]);
 					 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
 					 
@@ -91,6 +105,7 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 apoliceAuto.setSegurado(segurador);
 					 
 					 apoliceAutoService.incluir(apoliceAuto);
+					 
 					break;
 					
 				 case "V":
