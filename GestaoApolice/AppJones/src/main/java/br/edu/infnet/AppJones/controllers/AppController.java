@@ -3,11 +3,14 @@ package br.edu.infnet.AppJones.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import antlr.collections.List;
 import br.edu.infnet.AppJones.model.domain.Apolice;
@@ -55,7 +58,7 @@ public class AppController {
 		model.addAttribute("qtdeEndereco",enderecoService.contador());
 		
 		//model.addAttribute("estados",localidadeService.obterMunicipiosPorUF(null));
-		
+		model.addAttribute("estados",localidadeService.obterLista());
 		
 		return "home";
 	}
@@ -136,10 +139,6 @@ public class AppController {
 		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
 		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
 		
-	/*	java.util.List<Estado> lista = new ArrayList<Estado>(
-				Arrays.asList(new Estado("RO","Rondônia"),new Estado("AC", "Acre"))			
-				);
-		*/
 		
 		model.addAttribute("Titulo","Listagem de estados");
 		model.addAttribute("listagem",localidadeService.obterLista());
@@ -157,12 +156,7 @@ public class AppController {
 		model.addAttribute("qtdeApolice",apoliceService.contador());
 		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
 		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
-		
-	/*	java.util.List<Estado> lista = new ArrayList<Estado>(
-				Arrays.asList(new Estado("RO","Rondônia"),new Estado("AC", "Acre"))			
-				);
-		*/
-		
+
 		model.addAttribute("Titulo","Listagem da API");
 		model.addAttribute("listagem",apiService.obterLista());
 		
@@ -171,8 +165,8 @@ public class AppController {
 		return "home";
 	}
 	
-	@GetMapping("/municipio/{uf}/listagem")
-	public String listaMunicipios(Model model, @PathVariable Integer uf) {
+	@GetMapping("/municipio/listagem")
+	public String listaMunicipios(Model model, @RequestParam Integer uf) {
 		
 		model.addAttribute("qtdeEndereco",enderecoService.contador());
 		model.addAttribute("qtdeSegurado",seguradoraService.contador());
@@ -181,7 +175,7 @@ public class AppController {
 		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
 		
 		
-		model.addAttribute("Titulo","Listagem de estados");
+		model.addAttribute("Titulo","Listagem de municipios");
 		model.addAttribute("listagem",localidadeService.obterMunicipiosPorUF(uf));
 		
 		return "home";

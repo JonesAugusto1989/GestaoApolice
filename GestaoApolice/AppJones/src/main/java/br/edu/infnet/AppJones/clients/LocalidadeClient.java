@@ -17,7 +17,7 @@ public interface LocalidadeClient {
 	Collection<Estado> obterEstados();
 	
 	@GetMapping("/estados/{uf}/municipios")
-	Collection<Municipio> obterMunicipios(@PathVariable Integer id);
+	Collection<Municipio> obterMunicipios(@PathVariable("uf") Integer uf);
 	
 	
 }

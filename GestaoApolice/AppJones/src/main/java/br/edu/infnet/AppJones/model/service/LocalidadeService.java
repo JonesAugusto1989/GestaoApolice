@@ -19,12 +19,7 @@ public class LocalidadeService {
 	private LocalidadeClient localidadeClient;
 	
 	public Collection<Estado> obterLista(){
-		/*
-		List<Estado> lista = new ArrayList<Estado>(
-				Arrays.asList(new Estado("RO","Rondônia"),new Estado("AC", "Acre"))			
-				);
-				return (Collection<Estado>) lista;
-		*/
+	
 		return localidadeClient.obterEstados();
 	}
 	

@@ -5,17 +5,6 @@ public class Municipio {
 	private Integer id;
 	private String nome;
 	
-	public Municipio() {
-		this.setId(1);
-		
-	}
-	
-	public Municipio( String nome) {
-		this();
-		this.setNome(nome);
-		
-	}
-	
 	
 	public Integer getId() {
 		return id;

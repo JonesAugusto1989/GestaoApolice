@@ -21,7 +21,7 @@ import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 
 @Order(2)
-@Component
+//@Component
 public class ApoliceAutoLoader implements ApplicationRunner {
 	
 	@Autowired

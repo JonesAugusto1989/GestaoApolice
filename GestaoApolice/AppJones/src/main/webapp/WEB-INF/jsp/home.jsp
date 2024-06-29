@@ -24,7 +24,18 @@
 				<li class="nav-item"><a class="nav-link" href="/api/listagem">API</a></li>
 				
 			</ul>
+			
+			<form class="d-flex" action="/municipio/listagem" method="get">
 	
+					<select class="form-control me-2" name="uf">
+					  
+					  <c:forEach var="estado" items="${estados}">
+					  	<option value="${estado.id}">${estado.nome} - ${estado.sigla}</option>
+					  </c:forEach>
+					</select>			  
+					
+					<button class="btn btn-primary" type="submit">Municípios</button>
+			</form>
 			
 			
 		</div>
