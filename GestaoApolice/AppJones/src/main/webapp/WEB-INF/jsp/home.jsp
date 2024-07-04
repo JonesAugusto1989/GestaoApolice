@@ -20,8 +20,8 @@
 				<li class="nav-item"><a class="nav-link" href="/apoliceAuto/listagem">Apï¿½lice de Automovel</a></li>
 				<li class="nav-item"><a class="nav-link" href="/apoliceVida/listagem">Apï¿½lice de Vida</a></li>
 				<li class="nav-item"><a class="nav-link" href="/endereco/listagem">Endereços</a></li>
-				<li class="nav-item"><a class="nav-link" href="/estados/listagem">Estados</a></li>
-				<li class="nav-item"><a class="nav-link" href="/api/listagem">API</a></li>
+				<li class="nav-item"><a class="nav-link" href="/estado/listagem">Estados</a></li>
+			
 				
 			</ul>
 			

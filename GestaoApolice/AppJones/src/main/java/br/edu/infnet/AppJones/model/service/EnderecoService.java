@@ -18,10 +18,6 @@ public class EnderecoService {
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 	
-	@Autowired
-	private ApiJonesClient ApiJonesClient;
-	
-	
 	public Collection<Endereco> exibir(){
 		
 		Collection<Endereco> findAll = (Collection<Endereco>)enderecoRepository.findAll();

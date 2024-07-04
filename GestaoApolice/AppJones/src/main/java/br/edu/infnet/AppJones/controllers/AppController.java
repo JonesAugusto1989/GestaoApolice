@@ -21,7 +21,7 @@ import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 import br.edu.infnet.AppJones.model.service.ApoliceService;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 import br.edu.infnet.AppJones.model.service.EnderecoService;
-import br.edu.infnet.AppJones.model.service.LocalidadeService;
+
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
 @Controller
@@ -41,12 +41,10 @@ public class AppController {
 	
 	@Autowired
 	private EnderecoService enderecoService;
-	
-	@Autowired
-	private LocalidadeService localidadeService;
-	
+		
 	@Autowired
 	private ApiService apiService;
+	
 	
 	@GetMapping("/home")
 	public String home(Model model) {
@@ -57,8 +55,8 @@ public class AppController {
 		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
 		model.addAttribute("qtdeEndereco",enderecoService.contador());
 		
-		//model.addAttribute("estados",localidadeService.obterMunicipiosPorUF(null));
-		model.addAttribute("estados",localidadeService.obterLista());
+	
+		model.addAttribute("estados",apiService.obterEstados());
 		
 		return "home";
 	}
@@ -129,41 +127,15 @@ public class AppController {
 		
 		return "home";
 	}
-	
-	@GetMapping("/estados/listagem")
-	public String listaEstados(Model model) {
+	@GetMapping(value = "/estado/listagem")
+	public String listaEstados(Model model){
 		
-		model.addAttribute("qtdeEndereco",enderecoService.contador());
-		model.addAttribute("qtdeSegurado",seguradoraService.contador());
-		model.addAttribute("qtdeApolice",apoliceService.contador());
-		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
-		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
+		model.addAttribute("titulo", "Listagem de Estados");
+		model.addAttribute("listagem", apiService.obterEstados());
 		
-		
-		model.addAttribute("Titulo","Listagem de estados");
-		model.addAttribute("listagem",localidadeService.obterLista());
-		
-		
-		
-		return "home";
+		return home(model);
 	}
-	
-	@GetMapping("/api/listagem")
-	public String listagem(Model model) {
-		
-		model.addAttribute("qtdeEndereco",enderecoService.contador());
-		model.addAttribute("qtdeSegurado",seguradoraService.contador());
-		model.addAttribute("qtdeApolice",apoliceService.contador());
-		model.addAttribute("qtdeApoliceAuto",apoliceAutoService.contador());
-		model.addAttribute("qtdeApoliceVida",apoliceVidaService.contador());
 
-		model.addAttribute("Titulo","Listagem da API");
-		model.addAttribute("listagem",apiService.obterLista());
-		
-		
-		
-		return "home";
-	}
 	
 	@GetMapping("/municipio/listagem")
 	public String listaMunicipios(Model model, @RequestParam Integer uf) {
@@ -176,8 +148,7 @@ public class AppController {
 		
 		
 		model.addAttribute("Titulo","Listagem de municipios");
-		model.addAttribute("listagem",localidadeService.obterMunicipiosPorUF(uf));
-		
+		model.addAttribute("listagem",apiService.obterMunicipios(uf));
 		return "home";
 	}
 	

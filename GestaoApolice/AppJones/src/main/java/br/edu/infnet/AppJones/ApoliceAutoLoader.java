@@ -15,17 +15,22 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JacksonInject.Value;
 
+import br.edu.infnet.AppJones.clients.ApiJonesClient;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
+import br.edu.infnet.AppJones.model.service.CarroService;
 
 @Order(2)
-//@Component
+@Component
 public class ApoliceAutoLoader implements ApplicationRunner {
 	
 	@Autowired
 	private ApoliceAutoService apoliceAutoService;
+	
+	@Autowired
+	private ApiJonesClient apiJonesClient;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -47,6 +52,7 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 			//apoliceAuto.setMarcaDoCarro(campos[0]);
 			// Carro carro = carroService.obterModelo(campos[0]);
 			//carroService.incluir(carro);
+			apoliceAuto.setCarro(apiJonesClient.obterModelo(campos[0]));
 			apoliceAuto.setSeguradoraContratada(campos[1]);	
 			apoliceAuto.setValor(Float.valueOf(campos[2]));
 			apoliceAuto.setBonusApolice(Integer.valueOf(campos[3]));

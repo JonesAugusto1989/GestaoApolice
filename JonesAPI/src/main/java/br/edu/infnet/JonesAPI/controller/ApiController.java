@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.infnet.JonesAPI.model.domain.Carro;
 import br.edu.infnet.JonesAPI.model.domain.Endereco;
+import br.edu.infnet.JonesAPI.model.domain.Estado;
+import br.edu.infnet.JonesAPI.model.domain.Municipio;
 import br.edu.infnet.JonesAPI.service.CarrosService;
 import br.edu.infnet.JonesAPI.service.EnderecoService;
+import br.edu.infnet.JonesAPI.service.LocalidadeService;
 
 @RestController
 public class ApiController {
@@ -24,10 +27,8 @@ public class ApiController {
 	@Autowired
 	private CarrosService carrosService;
 	
-	@GetMapping("/listagem")
-	public Collection<String> obterLista(){
-		return new ArrayList<String>(Arrays.asList("Jones","Augusto", "Paranhos"));
-	}
+	@Autowired
+	private LocalidadeService localidadeService;
 
 	@GetMapping("/cep/{cep}")
 	public Endereco obterPorCep(@PathVariable String cep) {
@@ -44,18 +45,19 @@ public class ApiController {
 	
 		return modelo;
 	}
-	/*
-	//estados/* 
-	@GetMapping("/estados")
-	public Collection<EStados> obterEstados(){
-		return null;
-	}
-	*/
-	//municipios/*
 	
-	/*
-	 @GetMapping("{uf}/municipios")
-	 public Collection<EStados> obterMunicipios(@PathVariable Integer uf){
-		return null;
-	}*/
+	
+	
+	@GetMapping("/estados")
+	public Collection<Estado> obterEstados(){
+		return localidadeService.obterEstados();
+	}
+	
+	@GetMapping("/{uf}/municipios")
+	public Collection<Municipio> obterMunicipios(@PathVariable Integer uf){
+		return localidadeService.obterMunicipios(uf);
+	}
+	
+	
+	
 }

@@ -22,13 +22,6 @@ public class CarroService {
 		this.carroRepository = carroRepository;
 	}
 
-	
-	public Carro obterModelo(String carro) {
-		Carro carroModelo = apiJonesClient.obterModelo(carro);
-		return carroModelo;
-		
-	}
-	
 
 	public Collection<Carro> exibirCarros(){
 		Collection<Carro> listaCarros = (Collection<Carro>) carroRepository.findAll();

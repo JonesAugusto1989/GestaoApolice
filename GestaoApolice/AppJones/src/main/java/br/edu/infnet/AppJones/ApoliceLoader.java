@@ -23,7 +23,7 @@ import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceService;
 import br.edu.infnet.AppJones.model.service.CarroService;
 
-//@Component
+@Component
 public class ApoliceLoader implements ApplicationRunner{
 
 	@Autowired
@@ -58,14 +58,15 @@ public class ApoliceLoader implements ApplicationRunner{
 				 apoliceAuto.setNumeroDaApolice(campos[2]);
 					
 				 apoliceAuto.setSeguradoraContratada(campos[3]);
-				 //Carro carro = apiJonesClient.obterModelo(campos[0]);
-				 //apoliceAuto.setCarro(carro);
+				
+				
+				 
 				 
 				 apoliceAuto.setVigenciaInicial(campos[4]);
 				
 				 apoliceAuto.setVigenciaFinal(campos[5]);
 				 apoliceAuto.setValor(Float.valueOf(campos[6]));
-				 //apoliceAuto.setMarcaDoCarro(campos[7]);
+				 apoliceAuto.setCarro(apiJonesClient.obterModelo(campos[7]));
 				 apoliceAuto.setPlaca(campos[8]);
 				 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
 				 apoliceAuto.setSegurado(new Seguradora(Integer.valueOf(campos[10])));

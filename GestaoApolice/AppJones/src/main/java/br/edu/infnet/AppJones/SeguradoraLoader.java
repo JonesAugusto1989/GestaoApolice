@@ -92,12 +92,13 @@ public class SeguradoraLoader implements ApplicationRunner{
 					 apoliceAuto.setVigenciaFinal(campos[5]);
 					 apoliceAuto.setValor(Float.valueOf(campos[6]));
 					 //apoliceAuto.setMarcaDoCarro(campos[7]);
-					//Carro carro = carroService.obterModelo(campos[7]);
+					 //Carro carro = carroService.obterModelo(campos[7]);
+					 apoliceAuto.setCarro(apiJonesClient.obterModelo(campos[7]));
 
-					 Carro carro = new Carro();
-					 carro.setModelo("carro");
+					 //Carro carro = new Carro();
+					 //carro.setModelo("carro");
 					
-					 apoliceAuto.setCarro(carro);
+					 //apoliceAuto.setCarro(carro);
 					 System.out.println("get carro: "+ apoliceAuto.getCarro());
 					 apoliceAuto.setPlaca(campos[8]);
 					 apoliceAuto.setBonusApolice(Integer.valueOf(campos[9]));
