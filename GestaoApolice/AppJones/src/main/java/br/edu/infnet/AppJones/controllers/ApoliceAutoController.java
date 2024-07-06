@@ -45,11 +45,11 @@ public class ApoliceAutoController {
 		return apoliceAutoService.findByPlaca(placa);	
 	}
 	
-	/*
-	@GetMapping("/ApoliceAuto/{marca}/buscarTodosPorMarca")
-	public Collection <ApoliceAuto> buscarTodosPorMarca(@PathVariable("marca") String marcaDoCarro){
-		return apoliceAutoService.findAllByMarca(marcaDoCarro);
+	
+	@GetMapping("/ApoliceAuto/buscarTodosCarrosDesc")
+	public Collection <ApoliceAuto> buscarTodosCarrosDesc(){
+		return apoliceAutoService.procurarTodosCarroDesc();
 		
 	}
-	*/
+	
 }

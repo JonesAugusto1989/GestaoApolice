@@ -8,6 +8,5 @@ import br.edu.infnet.AppJones.model.domain.Carro;
 @Repository
 public interface CarroRepository extends CrudRepository<Carro, Integer>{
 	
-	//Carro findByCarro(Carro carro);
 
 }

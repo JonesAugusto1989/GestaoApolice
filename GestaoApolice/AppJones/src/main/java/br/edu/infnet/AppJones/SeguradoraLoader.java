@@ -2,13 +2,8 @@ package br.edu.infnet.AppJones;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -19,7 +14,6 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.AppJones.clients.ApiJonesClient;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
 import br.edu.infnet.AppJones.model.domain.ApoliceVida;
-import br.edu.infnet.AppJones.model.domain.Carro;
 import br.edu.infnet.AppJones.model.domain.Endereco;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;

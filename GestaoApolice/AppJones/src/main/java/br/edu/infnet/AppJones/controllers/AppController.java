@@ -1,27 +1,16 @@
 package br.edu.infnet.AppJones.controllers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import antlr.collections.List;
-import br.edu.infnet.AppJones.model.domain.Apolice;
-import br.edu.infnet.AppJones.model.domain.Estado;
-import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApiService;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
 import br.edu.infnet.AppJones.model.service.ApoliceService;
 import br.edu.infnet.AppJones.model.service.ApoliceVidaService;
 import br.edu.infnet.AppJones.model.service.EnderecoService;
-
 import br.edu.infnet.AppJones.model.service.SeguradoraService;
 
 @Controller
@@ -151,6 +140,9 @@ public class AppController {
 		model.addAttribute("listagem",apiService.obterMunicipios(uf));
 		return "home";
 	}
+	
+	
+	
 	
 	
 

@@ -14,6 +14,6 @@ public interface SeguradoraRepository extends CrudRepository<Seguradora, Integer
 
 	Seguradora findByCpfCnpj(String cpfCnpj);
 	
-	Collection<Seguradora> findByNomeContaining(Sort by,String nome);
+	Collection<Seguradora> findAllByNomeContaining(Sort by,String nome);
 	
 }

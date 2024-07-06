@@ -1,11 +1,7 @@
 package br.edu.infnet.AppJones;
 
 import java.io.BufferedReader;
-
 import java.io.FileReader;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -13,14 +9,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JacksonInject.Value;
-
 import br.edu.infnet.AppJones.clients.ApiJonesClient;
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
-import br.edu.infnet.AppJones.model.domain.ApoliceVida;
 import br.edu.infnet.AppJones.model.domain.Seguradora;
 import br.edu.infnet.AppJones.model.service.ApoliceAutoService;
-import br.edu.infnet.AppJones.model.service.CarroService;
 
 @Order(2)
 @Component
@@ -41,7 +33,7 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 		
 		String linha = leitura.readLine();
 		String[] campos = null;
-		Float valor = null;
+		
 		
 		while(linha!=null) {
 			campos = linha.split(";");
@@ -49,9 +41,7 @@ public class ApoliceAutoLoader implements ApplicationRunner {
 		
 			ApoliceAuto apoliceAuto = new ApoliceAuto();
 			apoliceAuto.setTipoSeguro("a");
-			//apoliceAuto.setMarcaDoCarro(campos[0]);
-			// Carro carro = carroService.obterModelo(campos[0]);
-			//carroService.incluir(carro);
+		
 			apoliceAuto.setCarro(apiJonesClient.obterModelo(campos[0]));
 			apoliceAuto.setSeguradoraContratada(campos[1]);	
 			apoliceAuto.setValor(Float.valueOf(campos[2]));

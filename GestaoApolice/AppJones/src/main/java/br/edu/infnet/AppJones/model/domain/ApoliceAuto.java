@@ -3,20 +3,15 @@ package br.edu.infnet.AppJones.model.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="TApoliceAuto")
 public class ApoliceAuto extends Apolice{
-	
-	//@NotBlank(message = "É necessario preencher o campo marcaDoCarro")
-	//private String marcaDoCarro;
-	
+
 	
 	@Column(name = "csPlaca")
 	@NotBlank(message = "É necessario preencher o campo placa")
@@ -32,7 +27,7 @@ public class ApoliceAuto extends Apolice{
 	
 	
 	public ApoliceAuto() {
-	//	this.carro = new Carro();
+	
 	}
 	
 

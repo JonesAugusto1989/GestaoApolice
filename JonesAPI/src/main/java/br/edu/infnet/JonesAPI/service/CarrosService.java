@@ -1,16 +1,12 @@
 package br.edu.infnet.JonesAPI.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.JonesAPI.Exception.CarroNaoEncontradoException;
 import br.edu.infnet.JonesAPI.clients.CarrosClient;
 import br.edu.infnet.JonesAPI.model.domain.Carro;
-import ch.qos.logback.core.status.StatusListenerAsList;
 
 @Service
 public class CarrosService {
@@ -33,29 +29,7 @@ public class CarrosService {
 		 carro = listaDeCarros.get(0);
 		
 		 return carro;
-		
-//		 try {
-//			 if(listaDeCarros.size()>0) {
-//				 System.out.println("ENTROU NO CARROS LISTA CLIENTES");
-//				 carro = listaDeCarros.get(0);
-//				 System.out.println("IMPRESSAO DO CARRO "+ carro + " RETORNANDO");
-//				 return carro;
-//				 
-//				 
-//			 }else {
-//				 throw new CarroNaoEncontradoException("Carro invalido");
-//			 }
-//			 	 
-//		 }catch(CarroNaoEncontradoException e) {
-//			 System.out.println("ENTROU NO CARROS CLIENTSSSSSSSSSSSSSS VAI RETORNAR carro padrão");
-//			 carro.setModelo("carro padrao");
-//			 carro.setFabricante("fabricante padrao");
-//			 return null;
-//		 }
-		 
-		
-		 
-		
+			
 	}
 
 }

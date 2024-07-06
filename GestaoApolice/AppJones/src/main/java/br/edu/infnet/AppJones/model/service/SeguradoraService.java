@@ -48,7 +48,7 @@ public class SeguradoraService {
 	}
 	
 	public Collection<Seguradora> buscarTodosPeloNome(String nome){
-		return seguradoraRepository.findByNomeContaining(Sort.by(Sort.Direction.ASC, "nome"), nome);
+		return seguradoraRepository.findAllByNomeContaining(Sort.by(Sort.Direction.ASC, "nome"), nome);
 	}
 
 }

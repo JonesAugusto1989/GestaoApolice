@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppJones.model.domain.ApoliceAuto;
+import br.edu.infnet.AppJones.model.domain.Carro;
 import br.edu.infnet.AppJones.model.repository.ApoliceAutoRepository;
 
 @Service
@@ -23,7 +24,7 @@ public class ApoliceAutoService {
 	
 	public void incluir(ApoliceAuto apoliceAuto) {
 		apoliceAutoRepository.save(apoliceAuto);
-		//System.out.println("Salvando A "+ apoliceAuto.getCarro().getAnoDeFabricacao());
+		
 	}
 	
 	public Collection<ApoliceAuto> exibir() {
@@ -46,6 +47,10 @@ public class ApoliceAutoService {
 	
 	public ApoliceAuto findByPlaca(String placa){
 		return apoliceAutoRepository.findByPlaca(placa);
+	}
+	
+	public Collection <ApoliceAuto> procurarTodosCarroDesc(){
+		return apoliceAutoRepository.findAll(Sort.by(Sort.Direction.DESC, "placa"));
 	}
 
 }
